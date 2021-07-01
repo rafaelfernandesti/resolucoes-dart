@@ -1,0 +1,21 @@
+### Birthday Cake Candles ##
+
+public static int birthdayCakeCandles(List<Integer> candles) {
+    // Write your code here
+        int size = candles.size();
+        Integer[] arrayCandles = (Integer[])candles.toArray(new Integer[0]);
+        int contador = 0;
+        int maior = 0;
+        
+        for(int i = 0; i < size; i++){
+            if(arrayCandles[i] > maior){
+                maior = arrayCandles[i];
+            }
+        }
+        for(int i = 0; i < size; i++){
+            if(arrayCandles[i] == maior){
+                contador++;
+            }
+        }
+        return contador;
+    }

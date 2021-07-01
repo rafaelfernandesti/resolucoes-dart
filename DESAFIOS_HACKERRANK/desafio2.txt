@@ -1,0 +1,20 @@
+### Your Grading Students ###
+public static List<Integer> gradingStudents(List<Integer> grades) {
+    // Write your code here
+    Integer[] arrayGrades = (Integer[])grades.toArray(new Integer[0]);
+    int size = arrayGrades.length;
+    List listNovo = new ArrayList();
+    for(int i = 0; i < size; i++){
+        if(arrayGrades[i] < 38){
+            listNovo.add(arrayGrades[i]);
+        }else{
+            if(((arrayGrades[i]+1) % 5 == 0)){
+                listNovo.add(arrayGrades[i]+1);
+            }else if(((arrayGrades[i]+2) % 5 == 0)){
+                listNovo.add(arrayGrades[i]+2);
+            }else{
+                listNovo.add(arrayGrades[i]);
+            }
+        }
+    }
+    return listNovo;

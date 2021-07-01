@@ -1,0 +1,16 @@
+### Angry Professor ###
+static String angryProfessor(int k, int[] a) {
+        int countAbsents = 0, countPresence = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > 0) {
+                countAbsents++;
+            } else {
+                countPresence++;
+            }
+        }
+        if(countPresence >= k){
+            return("NO");
+        }else{
+            return("YES");
+        }
+    }

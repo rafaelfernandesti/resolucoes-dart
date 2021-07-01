@@ -1,0 +1,9 @@
+### Extra Long Factorials ###
+    static void extraLongFactorials(int n) {
+        //int n = 25;
+        BigInteger numero = BigInteger.ONE;
+        for(int i = n; i > 0; i--){
+            numero = numero.multiply(BigInteger.valueOf(i));
+        }
+        System.out.println(numero.toString());
+    }

@@ -1,0 +1,20 @@
+### Time Conversion ###
+static String timeConversion(String s) {
+        boolean am = s.endsWith("AM");
+        String hora = s.substring(0, 2);
+        String minuto = s.substring(3, 5);
+        String segundo = s.substring(6, 8);
+        String novaHora = "";
+        int nHora = Integer.parseInt(hora);
+        if (am && hora.equals("12")) {
+            hora = "00";
+        }else{
+            if(!am && !hora.equals("12")){
+                nHora += 12;
+                hora = nHora + "";
+            }
+        }
+        novaHora = hora + ":" + minuto + ":" + segundo;
+        return(novaHora);
+    }
+
