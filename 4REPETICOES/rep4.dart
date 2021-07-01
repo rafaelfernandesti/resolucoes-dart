@@ -11,20 +11,22 @@ O final da leitura de dados se dará com a entrada de um salário negativo.
 import 'dart:io';
 
 main(List<String> args) {
-  int pares = 0, impares = 0, inv = 0;
-  for (var i = 0; i < 10; i++) {
-    print("Digite o ${i + 1}º número: ");
-    double? num = double.tryParse(stdin.readLineSync()!);
-    if (num == null) {
-      print("Número não digitado");
-      inv++;
-    } else {
-      if (num % 2 == 0) {
-        pares++;
-      } else {
-        impares++;
-      }
+  int qtdeCadastros = 0;
+  int qtdeAcumuladaDeFilhos = 0;
+  double salario = 0;
+  double salarioAcumulado = 0;
+  double mediaSalarios = 0;
+  double mediaFilhos = 0;
+  double maiorSalario = 0;
+  while (salario >= 0) {
+    print("Quantos filhos você tem? ");
+    qtdeAcumuladaDeFilhos += int.parse(stdin.readLineSync()!);
+    print("Qual seu salário? ");
+    salario = double.parse(stdin.readLineSync()!);
+    salarioAcumulado += salario;
+    if (salario > maiorSalario) {
+      maiorSalario = salario;
     }
+    qtdeCadastros++;
   }
-  print("PARES = $pares / IMPARES = $impares / INVÁLIDOS = $inv");
 }
