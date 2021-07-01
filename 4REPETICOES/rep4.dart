@@ -12,6 +12,7 @@ import 'dart:io';
 
 main(List<String> args) {
   int qtdeCadastros = 0;
+  int qtdeSalarios1100 = 0;
   int qtdeAcumuladaDeFilhos = 0;
   double salario = 0;
   double salarioAcumulado = 0;
@@ -19,14 +20,28 @@ main(List<String> args) {
   double mediaFilhos = 0;
   double maiorSalario = 0;
   while (salario >= 0) {
-    print("Quantos filhos você tem? ");
-    qtdeAcumuladaDeFilhos += int.parse(stdin.readLineSync()!);
     print("Qual seu salário? ");
     salario = double.parse(stdin.readLineSync()!);
-    salarioAcumulado += salario;
+    if (salario >= 0) {
+      salarioAcumulado += salario;
+      qtdeCadastros++;
+      print("Quantos filhos você tem? ");
+      qtdeAcumuladaDeFilhos += int.parse(stdin.readLineSync()!);
+    } else {
+      salarioAcumulado += 0;
+    }
     if (salario > maiorSalario) {
       maiorSalario = salario;
     }
-    qtdeCadastros++;
+    if (salario <= 1100 && salario >= 0) {
+      qtdeSalarios1100++;
+    }
   }
+  print(
+      "a) Média do salário da população: ${(salarioAcumulado / qtdeCadastros).toStringAsFixed(2)}");
+  print(
+      "b) Média do número de filhos: ${(qtdeAcumuladaDeFilhos / qtdeCadastros).floor()}"); //Como não tem 2,5 filhos arredondei.
+  print("c) Maior salário: ${maiorSalario.toStringAsFixed(2)}");
+  print(
+      "d) Percentual de pessoas com salário até R\$ 1100,00 (salário mínimo): ${qtdeSalarios1100 / qtdeCadastros * 100}%");
 }
